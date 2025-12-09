@@ -36,8 +36,8 @@ class Settings(BaseSettings):
     MINIO_SECURE: bool = False
 
     # Celery
-    CELERY_BROKER_URL: str = "redis://localhost:6379/1"
-    CELERY_RESULT_BACKEND: str = "redis://localhost:6379/2"
+    CELERY_BROKER_URL: str = "redis://localhost:26379/1"
+    CELERY_RESULT_BACKEND: str = "redis://localhost:26379/2"
 
     # CORS
     CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:8080"]

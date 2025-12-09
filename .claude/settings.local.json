@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(dir)",
-      "Bash(pip install -r requirements.txt)"
+      "Bash(pip install -r requirements.txt)",
+      "Bash(python -c \"from jose import jwt; token=''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImV4cCI6MTc2NTI5NzI2NiwidHlwZSI6ImFjY2VzcyJ9.ceWOy8z0tzry_echSqGG-tGsfBDS1FbU8vaL-TGRF9k''; print(''Token payload:'', jwt.decode(token, ''123456'', algorithms=[''HS256'']))\")",
+      "Bash(python:*)",
+      "Bash(.venvScriptspython -c \"from jose import jwt; token=''eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImV4cCI6MTc2NTI5NzkwNiwidHlwZSI6ImFjY2VzcyJ9.TbbR98nt8bYGVd_0a-p2YtHVkzFbmn7R1qWNi8xy-ro''; print(''Token payload:'', jwt.decode(token, ''your-secret-key-change-this-in-production'', algorithms=[''HS256'']))\")",
+      "Bash(pip install:*)",
+      "Bash(docker exec:*)"
     ]
   }
 }

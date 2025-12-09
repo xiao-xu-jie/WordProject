@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   postgres:
-    image: postgres:15
+    image: docker.1ms.run/library/postgres:15
     container_name: smart-vocab-db
     environment:
       POSTGRES_DB: smart_vocab
@@ -22,7 +22,7 @@ services:
     image: redis:7-alpine
     container_name: smart-vocab-redis
     ports:
-      - "6379:6379"
+      - "26379:6379"
     command: redis-server --appendonly yes
     volumes:
       - redis_data:/data

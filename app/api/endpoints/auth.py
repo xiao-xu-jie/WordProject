@@ -50,8 +50,8 @@ async def register(
     await db.commit()
     await db.refresh(new_user)
 
-    access_token = create_access_token(data={"sub": new_user.id})
-    refresh_token = create_refresh_token(data={"sub": new_user.id})
+    access_token = create_access_token(data={"sub": str(new_user.id)})
+    refresh_token = create_refresh_token(data={"sub": str(new_user.id)})
     expires_at = datetime.utcnow() + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
 
     return TokenResponse(
@@ -88,8 +88,8 @@ async def login(
     user.last_login_at = datetime.utcnow()
     await db.commit()
 
-    access_token = create_access_token(data={"sub": user.id})
-    refresh_token = create_refresh_token(data={"sub": user.id})
+    access_token = create_access_token(data={"sub": str(user.id)})
+    refresh_token = create_refresh_token(data={"sub": str(user.id)})
     expires_at = datetime.utcnow() + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
 
     return TokenResponse(
@@ -124,8 +124,8 @@ async def refresh_token(
             detail="User not found or inactive"
         )
 
-    new_access_token = create_access_token(data={"sub": user.id})
-    new_refresh_token = create_refresh_token(data={"sub": user.id})
+    new_access_token = create_access_token(data={"sub": str(user.id)})
+    new_refresh_token = create_refresh_token(data={"sub": str(user.id)})
     expires_at = datetime.utcnow() + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
 
     return TokenResponse(
